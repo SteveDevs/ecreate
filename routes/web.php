@@ -19,4 +19,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/setCurrency/{currency}', [App\Http\Controllers\SettingsController::class, 'setCurrency'])->name('setCurrency');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

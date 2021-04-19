@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Session;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $currencies = json_decode(file_get_contents(base_path('data/currencies.json')), true);
+        return view('home')->with('currencies',$currencies);
     }
 }
